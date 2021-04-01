@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+{% extends "myapp/index.html"%}
+
+
+{% block body %}
+
+<h1>Welcome to online exam portal</h1>
+    {% if question %}
+
+<h2>List of question</h2>
+
+<div class="container">
+<div class="jumbotron">
+
+
+
+  <form class=""  method="post">
+{% for q in question %}
+    <b>{{q.id}} {{q.question}}</b><br>
+    <input type="radio" name="A" value="A">{{q.option1}}<br>
+    <input type="radio" name="B" value="B">{{q.option2}}<br>
+    <input type="radio" name="C" value="C">{{q.option3}}<br>
+    <input type="radio" name="D" value="D">{{q.option4}}<br>
+
+{% endfor %}
+  <input type="submit" name="submit" value="submit">
+  </form>
+</div>
+</div>
+    {% else %}
+<h1>No any exam.........</h1>
+
+
+    {% endif %}
+
+
+{% endblock %}

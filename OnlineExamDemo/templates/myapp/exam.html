@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{% extends "myapp/index.html"%}
+
+
+{% block body %}
+
+<h1>Welcome to online exam portal</h1>
+    {% if exam %}
+
+<h2>List of Exam</h2>
+    {% for e in exam %}
+  <a href="{% url 'myapp:question' e.id %}">{{e.name}}<br></a>  
+    {% endfor %}
+    {% else %}
+<h1>No any exam.........</h1>
+
+
+    {% endif %}
+
+
+{% endblock %}
